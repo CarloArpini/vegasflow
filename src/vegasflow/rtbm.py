@@ -197,10 +197,11 @@ class RTBMFlow(MonteCarloFlow):
             self._rtbm = RTBM(
                 self.n_dim,
                 n_hidden,
-                minimization_bound=50,
+                init_max_param_bound=50,
                 gaussian_init=True,
                 positive_T=True,
                 positive_Q=True,
+                diagonal_Q=True,
                 gaussian_parameters={"mean": 0.0, "std": 0.75},
                 sampling_activations="tanh",
             )
@@ -338,10 +339,11 @@ class RTBMFlow(MonteCarloFlow):
             rtbm = RTBM(
                 self.n_dim,
                 self._n_hidden,
-                minimization_bound=50,
+                init_max_param_bound=50,
                 gaussian_init=True,
                 positive_T=True,
                 positive_Q=True,
+                diagonal_Q=True,
                 gaussian_parameters={"mean": means, "std": stds},
                 sampling_activations=acts,
             )
